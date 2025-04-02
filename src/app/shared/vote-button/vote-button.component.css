@@ -1,0 +1,21 @@
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .upvote-active {
+    color: green !important;
+  }
+  
+  .downvote-active {
+    color: red !important;
+  }
+  
+  .fa-icon {
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .fa-icon:hover:not(.disabled) {
+    opacity: 0.8;
+  }

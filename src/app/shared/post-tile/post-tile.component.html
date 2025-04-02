@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row post" *ngFor="let post of posts">
+    <!-- Voting Section -->
+    <div class="col-md-1">
+      <app-vote-button [post]="post"></app-vote-button>
+    </div>
+
+    <!-- Post Content -->
+    <div class="col-md-11">
+      <span class="subreddit-info">
+        <span class="subreddit-text">
+          <a class="posturl" href="/subreddit/{{ post.subredditName }}">
+            {{ post.subredditName }}
+          </a>
+        </span>
+        <span>
+          · Posted by <a class="username" href="/user/{{ post.userName }}">
+            {{ post.userName }}
+          </a>
+        </span>
+        <span> · {{ post.duration }}</span>
+      </span>
+
+      <hr />
+
+      <div class="post-title">
+        <a class="postname" href="/post/{{ post.id }}">
+          {{ post.postName }}
+        </a>
+      </div>
+
+      <div>
+        <p class="post-text" [innerHtml]="post.description"></p>
+      </div>
+
+      <hr />
+
+      <span>
+        <a class="btnComments" role="button">
+          <fa-icon [icon]="faComments"></fa-icon>
+          Comments ({{ post.commentCount || 0 }})
+        </a>
+        <button class="login" (click)="goToPost(post.id)">
+          Read Post
+        </button>
+        <button class="delete-btn" (click)="deletePost(post.id)">
+          <fa-icon [icon]="faTrash"></fa-icon> Delete
+        </button>
+      </span>
+    </div>
+  </div>
+</div>

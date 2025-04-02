@@ -1,0 +1,75 @@
+.container {
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .container div {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Header Text */
+  .container div:first-child {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 15px;
+  }
+  
+  /* Bold text */
+  b {
+    color: #0079d3;
+  }
+  
+  /* Section Titles */
+  .container hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+  }
+  
+  .container div:nth-child(3), 
+  .container div:nth-child(5) {
+    font-size: 17px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  /* Comments Section */
+  .comment {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .username a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0079d3;
+    text-decoration: none;
+  }
+  
+  .username a:hover {
+    text-decoration: underline;
+  }
+  
+  .comment p {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .comment b {
+    display: block;
+    font-size: 15px;
+    color: #222;
+    margin-top: 5px
+  }
