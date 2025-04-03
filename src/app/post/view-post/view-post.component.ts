@@ -52,8 +52,8 @@ export class ViewPostComponent implements OnInit {
     const commentPayload: CommentPayload = {
       text: this.commentForm.value.text,
       postId: this.postId,
-      username: this.username, // You should set this from auth service
-      duration: '', // This should be set by backend
+      username: this.username, 
+      duration: '', 
     };
 
     console.log('Username ', this.username);

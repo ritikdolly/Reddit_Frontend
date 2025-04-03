@@ -1,16 +1,16 @@
 .sidebar-view-subreddit {
-  width: 50vh;
+  width: 40vh;
     height: 260px;
     --post-line-color: #ccc;
     border: 1px solid #ccc;
     margin-bottom: 10px;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #878A8C;
+    background-color:rgb(247, 249, 250);
+    color: #ffffff;
     position: relative;
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 5px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -31,8 +31,8 @@
 
 .subreddit-text a {
   display: block;
-  color: #0079d3;
-  font-size: 20px;
+  color: #000000;
+  font-size: 16px;
   padding: 5px 0;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
@@ -40,17 +40,14 @@
 
 .subreddit-text a:hover {
   color: #005ea6;
-  text-decoration: underline;
 }
 
 .sidebar-view-subreddit .view-all {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
 }
 
 .sidebar-view-subreddit .view-all a {
-  font-weight: bold;
   color: #0079d3;
   text-decoration: none;
   transition: color 0.3s ease-in-out;

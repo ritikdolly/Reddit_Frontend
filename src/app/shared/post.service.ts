@@ -9,15 +9,19 @@ import { CreatePostPayload } from '../post/create-post/create-post.payload';
   providedIn: 'root',
 })
 export class PostService {
- 
   private baseUrl = 'http://localhost:8080/api/posts';
 
   constructor(private httpClient: HttpClient) {}
 
   private getAuthHeaders() {
+    const token = sessionStorage.getItem('authenticationToken');
+    if (!token) {
+      console.error('Auth token is missing!');
+      return new HttpHeaders({ 'Content-Type': 'application/json' });
+    }
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${sessionStorage.getItem('authenticationToken')}`,
+      Authorization: `Bearer ${token}`,
     });
   }
 
@@ -72,15 +76,15 @@ export class PostService {
   }
 
   deletePost(postId: number): Observable<void> {
-    return this.httpClient.delete<void>(`${this.baseUrl}/${postId}`, {
-      headers: this.getAuthHeaders(),
-    }).pipe(
-      catchError(error => {
-        console.error(`Error deleting post with ID ${postId}:`, error);
-        return of(); 
+    return this.httpClient
+      .delete<void>(`${this.baseUrl}/${postId}`, {
+        headers: this.getAuthHeaders(),
       })
-    );
+      .pipe(
+        catchError((error) => {
+          console.error(`Error deleting post with ID ${postId}:`, error);
+          return of();
+        })
+      );
   }
-  
-  
 }

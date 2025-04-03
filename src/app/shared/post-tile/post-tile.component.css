@@ -1,85 +1,87 @@
 .container {
-    margin-top: 80px;
+  margin-top: 80px;
 }
 
 .post {
-    border: 1px solid #ddd;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    color: #333;
-    padding: 15px;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(247, 249, 250);
+  color: #333;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
-
 .btnComments {
-    border: none;
-    background: none;
-    color: #0079d3;
-    font-weight: bold;
-    cursor: pointer;
-    transition: opacity 0.3s ease-in-out;
+  border: none;
+  background: none;
+  color: #0079d3;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .btnComments:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .post-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #222;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
 }
 
-.posturl, .postname {
-    color: #0056b3;
-    text-decoration: none;
+.posturl,
+.postname {
+  color: #0056b3;
+  text-decoration: none;
 }
 
-.posturl:hover, .postname:hover {
-    text-decoration: underline;
+.posturl:hover,
+.postname:hover {
+  text-decoration: underline;
 }
 
 .subreddit-text {
-    font-weight: bold;
-    color: #555;
+  font-weight: bold;
+  color: #555;
 }
 
 .post-text {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #444;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #444;
 }
 
 .login {
-    margin-left: 10px;
-    border-radius: 5px;
-    background-color: #0079d3;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
+  margin-left: 10px;
+  border-radius: 20px;
+  background-color: #0079d3;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
 .login:hover {
-    background-color: #005ea6;
+  background-color: #005ea6;
 }
 
 .delete-btn {
-    margin-left: 10px;
-    border-radius: 5px;
-    background-color: #d32f2f;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
+  margin-left: 10px;
+  border-radius: 20px;
+  background-color: #d32f2f;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
 .delete-btn:hover {
-    background-color: #b71c1c;
+  background-color: #b71c1c;
 }

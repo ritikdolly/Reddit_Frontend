@@ -37,14 +37,16 @@
 
       <span>
         <a class="btnComments" role="button">
-          <fa-icon [icon]="faComments"></fa-icon>
+          <fa-icon [icon]="faComments" focusable="false"></fa-icon>
           Comments ({{ post.commentCount || 0 }})
         </a>
+
         <button class="login" (click)="goToPost(post.id)">
           Read Post
         </button>
+
         <button class="delete-btn" (click)="deletePost(post.id)">
-          <fa-icon [icon]="faTrash"></fa-icon> Delete
+          <fa-icon [icon]="faTrash" focusable="false"></fa-icon> Delete
         </button>
       </span>
     </div>

@@ -4,7 +4,7 @@
 
 .post {
     border: 1px solid #ddd;
-    background-color: #fff;
+    background-color: rgb(247, 249, 250);
     color: #333;
     padding: 20px;
     border-radius: 6px;
@@ -80,7 +80,6 @@ textarea.form-control {
     padding: 8px 12px;
     border: none;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
 }
 
 .login:hover {
@@ -92,6 +91,7 @@ textarea.form-control {
     padding: 10px;
     border-radius: 6px;
     margin-bottom: 10px;
+    border: 1px solid;
 }
 
 .comment .username {

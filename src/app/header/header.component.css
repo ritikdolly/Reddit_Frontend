@@ -1,21 +1,21 @@
 /* Header Styles */
 header {
   background-color: white;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
- position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   padding: 0; /* Removed padding */
   margin: 0; /* Removed margin */
+  border-bottom: 1px solid ;
 }
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 10px 20px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -45,8 +45,7 @@ header {
 
 .logo-text {
   font-weight: 700;
-  font-size: 1.1rem; /* Slightly smaller */
-  color: #1a1a1b;
+  font-size: 1.4rem; /* Slightly smaller */
 }
 
 /* Navigation Right */
@@ -63,7 +62,8 @@ header {
   gap: 6px; /* Reduced gap */
 }
 
-.login-btn, .signup-btn {
+.login-btn,
+.signup-btn {
   border: 1px solid;
   padding: 8px 16px;
   font-size: 14px;
@@ -75,7 +75,7 @@ header {
 .signup-btn {
   background-color: #ff4500; /* Reddit orange */
   color: white;
-  
+
   border-color: #ff4500; /* Match border with background */
 }
 
@@ -87,6 +87,9 @@ header {
 /* Profile Dropdown */
 .profile-dropdown {
   position: relative;
+  border: 1px solid rgb(0, 0, 0); 
+  border-radius: 20px;
+  
 }
 
 .profile-button {
@@ -103,12 +106,14 @@ header {
 .profile-img {
   width: 24px; /* Smaller */
   height: 24px;
+  border-radius: 20px ;
 }
 
 .username {
-  font-size: 13px; /* Smaller */
+  font-size: 18px; /* Smaller */
+  color: #ff4500;
+  font-weight: 700;
 }
-
 
 /* Dropdown Menu */
 .dropdown-menu {
@@ -116,8 +121,6 @@ header {
   min-width: 180px; /* Slightly narrower */
   padding: 6px 0; /* Tighter */
 }
-
-
 
 /* Sidebar Toggle */
 .toggle-icon {
@@ -134,7 +137,8 @@ header {
   .auth-buttons {
     gap: 4px;
   }
-  .login-btn, .signup-btn {
+  .login-btn,
+  .signup-btn {
     padding: 4px 8px;
     font-size: 12px;
   }
@@ -158,7 +162,7 @@ header {
   width: 250px;
   height: 100%;
   background: white;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   transition: left 0.3s ease;
   z-index: 1100;
   padding: 20px;
@@ -197,4 +201,9 @@ header {
   border: none;
   font-size: 24px;
   cursor: pointer;
+}
+
+.dropdown-arrow{
+transform: rotate(90deg);
+  margin-left: 4px;
 }
