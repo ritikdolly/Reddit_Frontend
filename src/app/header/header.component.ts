@@ -15,24 +15,20 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   username: string = '';
   isSidebarOpen = false;
+  isDarkMode: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.authService.loggedIn.subscribe((data: boolean) => {
-      this.isLoggedIn = data;
-    });
-
-    this.authService.username.subscribe((data: string) => {
-      this.username = data;
-    });
+    this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
+    this.authService.username.subscribe((data: string) => this.username = data);
 
     this.isLoggedIn = this.authService.isLoggedIn();
     this.username = this.authService.getUserName() ?? '';
-  }
 
-  goToUserProfile() {
-    this.router.navigateByUrl('/user-profile/' + this.username);
+    const savedTheme = localStorage.getItem('theme');
+    this.isDarkMode = savedTheme === 'dark';
+    this.applyTheme();
   }
 
   toggleSidebar() {
@@ -44,5 +40,26 @@ export class HeaderComponent implements OnInit {
     this.isLoggedIn = false;
     this.username = '';
     this.router.navigate(['/login']);
+  }
+
+  goToUserProfile() {
+    this.router.navigateByUrl('/user-profile/' + this.username);
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+    this.applyTheme();
+  }
+
+  applyTheme() {
+    const body = document.body;
+    if (this.isDarkMode) {
+      body.classList.add('dark-theme');
+      body.classList.remove('light-theme');
+    } else {
+      body.classList.add('light-theme');
+      body.classList.remove('dark-theme');
+    }
   }
 }

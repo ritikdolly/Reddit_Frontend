@@ -10,4 +10,5 @@ export interface PostModel {
     duration: string;
     upVote?: boolean;
     downVote?: boolean;
+    expanded?: boolean;
   }

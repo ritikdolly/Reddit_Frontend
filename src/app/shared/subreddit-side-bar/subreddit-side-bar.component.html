@@ -1,11 +1,13 @@
 <div class="sidebar-view-subreddit">
-    <div style="color: black; font-weight: bold">POPULAR COMMUNITY</div>
+    <div class="sidebar-header">Popular Communities</div>
     <hr />
-    <span *ngFor="let subreddit of subreddits">
-        <span class="subreddit-text"><a href="/view-subreddit/{{subreddit.id}}">{{subreddit.name}}</a></span>
-        <hr />
-    </span>
-    <div style="text-align: center" *ngIf="displayViewAll">
-        <a style="font-weight: bold" href="/list-subreddits">See More</a>
+    <div class="subreddit-list">
+      <span *ngFor="let subreddit of subreddits" class="subreddit-item">
+        <a [href]="'/view-subreddit/' + subreddit.id">r/{{ subreddit.name }}</a>
+      </span>
     </div>
-</div>
+    <div class="view-all" *ngIf="displayViewAll">
+      <a href="/list-subreddits">See More</a>
+    </div>
+  </div>
+  

@@ -1,54 +1,49 @@
 <div class="container">
-  <div class="row post" *ngFor="let post of posts">
-    <!-- Voting Section -->
-    <div class="col-md-1">
-      <app-vote-button [post]="post"></app-vote-button>
-    </div>
-
-    <!-- Post Content -->
-    <div class="col-md-11">
+  <div class="post" *ngFor="let post of posts">
+    <div class="post-header">
       <span class="subreddit-info">
         <span class="subreddit-text">
           <a class="posturl" href="/subreddit/{{ post.subredditName }}">
-            {{ post.subredditName }}
+            r/{{ post.subredditName }}
           </a>
         </span>
-        <span>
+        <span class="posted-by">
           · Posted by <a class="username" href="/user/{{ post.userName }}">
-            {{ post.userName }}
+            u/{{ post.userName }}
           </a>
         </span>
-        <span> · {{ post.duration }}</span>
+        <span class="duration"> · {{ post.duration }}</span>
       </span>
+    </div>
 
-      <hr />
-
+    <div class="post-content">
       <div class="post-title">
         <a class="postname" href="/post/{{ post.id }}">
           {{ post.postName }}
         </a>
       </div>
 
-      <div>
-        <p class="post-text" [innerHtml]="post.description"></p>
+      <div class="post-text-wrapper">
+        <div class="post-text" [ngClass]="{ 'expanded': post.expanded }" [innerHTML]="sanitizeHtml(post.description)">
+        </div>
+        <button class="toggle-btn" *ngIf="isLongDescription(post?.description)" (click)="toggleDescription(post)">
+          {{ post.expanded ? 'Show Less' : 'Show More' }}
+        </button>
       </div>
+    </div>
 
-      <hr />
+    <div class="post-footer">
+      <app-vote-button [post]="post"></app-vote-button>
 
-      <span>
-        <a class="btnComments" role="button">
-          <fa-icon [icon]="faComments" focusable="false"></fa-icon>
-          Comments ({{ post.commentCount || 0 }})
-        </a>
+      <a class="btn-comments" role="button" (click)="goToPost(post.id)">
+        <fa-icon [icon]="faComments"></fa-icon>
+        {{ post.commentCount || 0 }} Comments
+      </a>
 
-        <button class="login" (click)="goToPost(post.id)">
-          Read Post
-        </button>
+      <button *ngIf="showDelete" class="delete-btn" (click)="deletePost(post.id)">
+        <fa-icon [icon]="faTrash"></fa-icon> Delete
+      </button>
 
-        <button class="delete-btn" (click)="deletePost(post.id)">
-          <fa-icon [icon]="faTrash" focusable="false"></fa-icon> Delete
-        </button>
-      </span>
     </div>
   </div>
 </div>

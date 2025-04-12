@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../shared/auth.service';
@@ -16,14 +11,12 @@ import { LoginRequestPayload } from './login-request.payload';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  isError: boolean = false;
   registerSuccessMessage: string = '';
-  loginRequestPayload : LoginRequestPayload
-Login: any;
+  loginRequestPayload: LoginRequestPayload;
 
   constructor(
     private authService: AuthService,
@@ -33,14 +26,14 @@ Login: any;
   ) {
     this.loginRequestPayload = {
       username: '',
-      password: '',
+      password: ''
     };
   }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
 
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -52,22 +45,25 @@ Login: any;
   }
 
   login() {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched(); 
+      return;
+    }
+
     const loginRequestPayload = {
       username: this.loginForm.get('username')?.value,
-      password: this.loginForm.get('password')?.value,
+      password: this.loginForm.get('password')?.value
     };
 
     this.authService.login(loginRequestPayload).subscribe({
       next: () => {
-        this.isError = false;
         this.router.navigateByUrl('');
         this.toastr.success('Login Successful');
       },
       error: (error) => {
-        this.isError = true;
         this.toastr.error('Login Failed. Please check your credentials.');
         console.error(error);
-      },
+      }
     });
   }
 }

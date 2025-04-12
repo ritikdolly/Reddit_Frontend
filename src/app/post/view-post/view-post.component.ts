@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   FormGroup,
   FormControl,
@@ -13,15 +13,18 @@ import { CommentPayload } from '../../Comment/comment.payload';
 import { CommentService } from '../../Comment/comment.service';
 import { VoteButtonComponent } from '../../shared/vote-button/vote-button.component';
 import { AuthService } from '../../auth/shared/auth.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, VoteButtonComponent],
+  imports: [CommonModule, ReactiveFormsModule, VoteButtonComponent,FontAwesomeModule],
   selector: 'app-view-post',
   templateUrl: './view-post.component.html',
   styleUrls: ['./view-post.component.css'],
 })
 export class ViewPostComponent implements OnInit {
+  faComments = faComment;
   postId!: number;
   post: PostModel | null = null;
   commentForm: FormGroup = new FormGroup({
@@ -31,18 +34,25 @@ export class ViewPostComponent implements OnInit {
   username: string = '';
 
   constructor(
+     private router: Router,
     private postService: PostService,
     private activateRoute: ActivatedRoute,
     private commentService: CommentService,
     private authService: AuthService
   ) {}
 
+  
   ngOnInit(): void {
+    
     this.postId = Number(this.activateRoute.snapshot.paramMap.get('id'));
     this.getPostById();
     this.getCommentsForPost();
     this.username = this.authService.getUserName() || '';
     console.log('After fetching username:', this.username);
+  }
+
+  goToPost(id: number): void {
+    this.router.navigateByUrl('/view-post/' + id);
   }
 
   postComment() {
@@ -69,6 +79,7 @@ export class ViewPostComponent implements OnInit {
       error: (error) => console.error('Error posting comment:', error),
     });
   }
+
 
   private getPostById() {
     this.postService.getPost(this.postId).subscribe({

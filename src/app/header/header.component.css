@@ -207,3 +207,10 @@ header {
 transform: rotate(90deg);
   margin-left: 4px;
 }
+
+.theme-toggle-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

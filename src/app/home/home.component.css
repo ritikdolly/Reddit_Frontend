@@ -15,3 +15,12 @@ header {
   }
 
   
+.scrollable-posts {
+  height: calc(100vh);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+  
+

@@ -1,13 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { faComments, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { MatDialog } from '@angular/material/dialog';
+import { faComment, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { PostModel } from '../post-model';
 import { ToastrService } from 'ngx-toastr';
 import { PostService } from '../post.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog/confirm-dialog.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
-import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { VoteButtonComponent } from "../vote-button/vote-button.component";
 
 @Component({
@@ -18,19 +20,34 @@ import { VoteButtonComponent } from "../vote-button/vote-button.component";
   imports: [FontAwesomeModule, CommonModule, MatDialogModule, VoteButtonComponent]
 })
 export class PostTileComponent {
-  faComments = faComments;
+  faComments = faComment;
   faTrash = faTrash;
+
   @Input() posts: PostModel[] = [];
+  @Input() showDelete: boolean = false;
 
   constructor(
     private router: Router,
     private postService: PostService,
     private toastr: ToastrService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private sanitizer: DomSanitizer
   ) {}
 
   goToPost(id: number): void {
     this.router.navigateByUrl('/view-post/' + id);
+  }
+
+  toggleDescription(post: PostModel): void {
+    post.expanded = !post.expanded;
+  }
+
+  isLongDescription(desc: string | undefined): boolean {
+    return !!desc && desc.length > 300;
+  }
+
+  sanitizeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
   deletePost(postId: number): void {

@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
-import { Observable, map, catchError, throwError } from 'rxjs';
+import { Observable, map, catchError, throwError, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { LoginRequestPayload } from '../login/login-request.payload';
 import { LoginResponse } from '../login/login-response.payload';
@@ -55,6 +55,23 @@ export class AuthService {
       })
     );
   }
+
+  googleLogin(idToken: string): Observable<any> {
+    return this.httpClient.get<LoginResponse>(`${this.baseUrl}/oauth/google`, {
+      params: { token: idToken },
+    }).pipe(
+      tap(response => {
+        this.storeAuthData(response); 
+        this.loggedIn.emit(true);      
+        this.username.emit(response.username);
+      }),
+      catchError((error) => {
+        console.error('Google login failed:', error);
+        return throwError(() => new Error('Google login failed'));
+      })
+    );
+  }
+  
 
   getJwtToken(): string | null {
     return typeof window !== 'undefined' ? sessionStorage.getItem('authenticationToken') : null;

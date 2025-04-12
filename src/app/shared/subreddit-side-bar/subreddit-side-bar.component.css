@@ -1,58 +1,68 @@
 .sidebar-view-subreddit {
-  width: 40vh;
-    height: 260px;
-    --post-line-color: #ccc;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    overflow: hidden;
-    background-color:rgb(247, 249, 250);
-    color: #ffffff;
-    position: relative;
-    border-radius: 10px;
-    padding: 5px;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 320px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 25px auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  transition: all 0.3s ease-in-out;
 }
 
-.sidebar-view-subreddit div {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #0079d3;
+.sidebar-header {
+  font-size: 20px;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  text-align: center;
 }
 
-.sidebar-view-subreddit hr {
-  border: 0;
-  height: 1px;
-  background-color: #ccc;
-  margin: 8px 0;
-}
-
-.subreddit-text a {
-  display: block;
-  color: #000000;
-  font-size: 16px;
-  padding: 5px 0;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-}
-
-.subreddit-text a:hover {
-  color: #005ea6;
-}
-
-.sidebar-view-subreddit .view-all {
+.subreddit-list {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.sidebar-view-subreddit .view-all a {
-  color: #0079d3;
+.subreddit-item a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #333;
+  background: #f5f7fa;
+  padding: 10px 14px;
+  border-radius: 10px;
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.sidebar-view-subreddit .view-all a:hover {
-  color: #005ea6;
+.subreddit-item a:hover {
+  background-color: #e0f0ff;
+  color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.view-all {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.view-all a {
+  font-weight: 600;
+  color: #0079d3;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1px solid #0079d3;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.view-all a:hover {
+  background-color: #0079d3;
+  color: #fff;
 }

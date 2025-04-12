@@ -1,91 +1,85 @@
-.btnCreatePost,
-.btnCreateSubreddit {
-  margin-top: 5px;
-}
-
-.container {
-   margin-top: 80px;
-}
-.post-form {
-  margin: 2px;
-}
-
-.comment-notification {
-  margin-top: 5px;
+.create-post-wrapper {
+  margin-top: 50px;
 }
 
 .create-post-container {
-  margin-top: 10px;
-  --post-line-color: #ccc;
-  border: 1px solid #ccc;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #878a8c;
-  position: relative;
-  border-radius: 4px;
-  padding: 5px;
-  
-}
-
-.btnDiscard {
-  fill: #0079d3;
-  border: 1px solid;
-  border-radius: 4px;
-  text-align: center;
-  letter-spacing: 1px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  line-height: 24px;
-  text-transform: uppercase;
-  padding: 3px 16px;
-  opacity: 1;
-  width: 400px;
-  height: 34px;
-  margin-top: 5px;
-  color: #0079d3;
-  background-color: transparent;
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e1e1e1;
 }
 
 .create-post-heading {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 22px;
-  color: #1c1c1c;
-  -ms-flex: 1;
-  flex: 1;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1b;
+  margin-bottom: 15px;
+}
+
+.form-control,
+.custom-select {
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-control:focus,
+.custom-select:focus {
+  border-color: #0079d3;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 121, 211, 0.2);
+}
+
+.editor {
+  margin-top: 25px;
+  display: block;
+}
+
+
+
+.tox-tinymce {
+  border-radius: 8px !important;
+  border: 1px solid #ccc !important;
+  box-shadow: none !important;
+  margin-top: 25px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  transition: all 0.2s ease-in-out;
 }
 
 .btnCreatePost {
   background-color: #0079d3;
-  border-color: #0079d3;
-  color: aliceblue;
-  fill: #0079d3;
-  border: 1px solid;
-  border-radius: 4px;
-  text-align: center;
-  letter-spacing: 1px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  line-height: 24px;
-  text-transform: uppercase;
-  padding: 3px 16px;
-  opacity: 1;
-  width: 400px;
-  height: 34px;
+  border: 1px solid #0079d3;
+  color: white;
 }
 
-.tox-tinymce {
-  text-align: left !important;
-  
+.btnCreatePost:hover {
+  background-color: #005ea6;
 }
 
-.float-right{
-  display: flex;
-  justify-content: space-between;
+.btnDiscard {
+  background-color: transparent;
+  border: 1px solid #0079d3;
+  color: #0079d3;
+}
+
+.btnDiscard:hover {
+  background-color: #f0f8ff;
 }
